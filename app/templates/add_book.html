@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Добавить книгу</title>
+</head>
+<body>
+  <h1>Добавить книгу</h1>
+  <form method="POST" action="{{ url_for('add_book') }}">
+    {{ form.hidden_tag() }}
+    <div>
+      {{ form.title.label }}<br>
+      {{ form.title(size=32) }}<br>
+      {% for error in form.title.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+    </div>
+    <div>
+      {{ form.author.label }}<br>
+      {{ form.author(size=32) }}<br>
+    </div>
+    <div>
+      {{ form.category.label }}<br>
+      {{ form.category(size=32) }}<br>
+    </div>
+    <div>
+      {{ form.year.label }}<br>
+      {{ form.year() }}<br>
+    </div>
+    <div>
+      {{ form.price.label }}<br>
+      {{ form.price() }}<br>
+    </div>
+    <div>
+      {{ form.rental_price.label }}<br>
+      {{ form.rental_price() }}<br>
+    </div>
+    <div>
+      <button type="submit">Добавить книгу</button>
+    </div>
+  </form>
+</body>
+</html>

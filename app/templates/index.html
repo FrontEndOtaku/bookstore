@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{{ title }}</title>
+</head>
+<body>
+  <h1>Книжный магазин</h1>
+  <ul>
+    {% if current_user.is_authenticated %}
+      <li><a href="{{ url_for('logout') }}">Выйти</a></li>
+    {% else %}
+      <li><a href="{{ url_for('login') }}">Войти</a></li>
+      <li><a href="{{ url_for('register') }}">Регистрация</a></li>
+    {% endif %}
+  </ul>
+  <ul>
+    {% for book in books %}
+      <li>
+        <a href="{{ url_for('book', id=book.id) }}">{{ book.title }} by {{ book.author }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+</body>
+</html>

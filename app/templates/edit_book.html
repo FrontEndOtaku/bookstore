@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{{ title }}</title>
+</head>
+<body>
+  <h1>Редактировать книгу</h1>
+  <form method="POST">
+    <p>
+      <label>Название</label><br>
+      <input type="text" name="title" value="{{ book.title }}" required>
+    </p>
+    <p>
+      <label>Автор</label><br>
+      <input type="text" name="author" value="{{ book.author }}" required>
+    </p>
+    <p>
+      <label>Категория</label><br>
+      <input type="text" name="category" value="{{ book.category }}" required>
+    </p>
+    <p>
+      <label>Год</label><br>
+      <input type="number" name="year" value="{{ book.year }}" required>
+    </p>
+    <p>
+      <label>Цена</label><br>
+      <input type="number" name="price" step="0.01" value="{{ book.price }}" required>
+    </p>
+    <p>
+      <label>Цена аренды</label><br>
+      <input type="number" name="rental_price" step="0.01" value="{{ book.rental_price }}" required>
+    </p>
+    <p>
+      <input type="submit" value="Обновить книгу">
+    </p>
+  </form>
+  <a href="{{ url_for('admin') }}">Вернуться в админ-панель</a>
+</body>
+</html>
